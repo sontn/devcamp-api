@@ -1,44 +1,15 @@
-const http = require('http');
+const express = require('express');
+const dotenv = require('dotenv');
 
-// const todos = [{ id: 1, text: 'Todo one' }];
+dotenv.config({ path: './config/config.env' });
 
-const server = http.createServer((req, res) => {
-  let body = [];
+const bootcamps = require('./routes/bootcamps');
 
-  req
-    .on('data', (chunk) => {
-      body += chunk.toString();
-    })
-    .on('end', () => {
-      console.log('Received data:', body);
+const app = express();
+app.use('/api/v1/bootcamps', bootcamps);
+const PORT = process.env.PORT;
 
-      let parsedData;
-
-      try {
-        parsedData = JSON.parse(body);
-      } catch (error) {
-        console.log(error);
-        res.writeHead(400, { 'Content-Type': 'application/json' });
-        return res.end(
-          JSON.stringify({
-            success: false,
-            error: 'Invalid json',
-          })
-        );
-      }
-
-      res.writeHead(200, {
-        'Content-Type': 'application/json',
-      });
-
-      res.end(
-        JSON.stringify({
-          success: true,
-          data: parsedData,
-        })
-      );
-    });
-});
-
-const PORT = 5000;
-server.listen(PORT, () => {});
+app.listen(
+  PORT,
+  console.log(`Server running at mode ${process.env.NODE_ENV} at port ${PORT}`)
+);
