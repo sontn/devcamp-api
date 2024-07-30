@@ -2,11 +2,10 @@ const express = require('express');
 const {
   getBootcamps,
   getBootcamp,
-  updateBootcamp,
   createBootcamp,
+  updateBootcamp,
   deleteBootcamp,
 } = require('../controllers/bootcamps');
-
 const router = express.Router();
 
 router.route('/').get(getBootcamps).post(createBootcamp);
