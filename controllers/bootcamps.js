@@ -5,11 +5,11 @@ exports.getBootcamps = (req, res, next) => {
   res.send(`Get all bootcamps`);
 };
 
-// @desc:       Get a bootcamp
+// @desc:       Get single bootcamp
 // @route:      GET /api/v1/bootcamps/:id
 // @access:     Public
 exports.getBootcamp = (req, res, next) => {
-  res.send(`Get a bootcamp with id ${req.params.id}`);
+  res.send(`Get single bootcamp by id ${req.params.id}`);
 };
 
 // @desc:       Create a bootcamp
