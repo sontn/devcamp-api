@@ -9,7 +9,7 @@ exports.getBootcamps = (req, res, next) => {
 // @route:      GET /api/v1/bootcamps/:id
 // @access:     Public
 exports.getBootcamp = (req, res, next) => {
-  res.send(`Get single bootcamp by id ${req.params.id}`);
+  res.send(`Get single bootcamp with id ${req.params.id}`);
 };
 
 // @desc:       Create a bootcamp
@@ -23,12 +23,12 @@ exports.createBootcamp = (req, res, next) => {
 // @route:      PUT /api/v1/bootcamps/:id
 // @access:     Private
 exports.updateBootcamp = (req, res, next) => {
-  res.send(`Update a bootcamp ${req.params.id}`);
+  res.send(`Create a bootcamp with id ${req.params.id}`);
 };
 
-// @desc:       Delete a bootcamp
+// @desc:       Delete bootcamp
 // @route:      DELETE /api/v1/bootcamps/:id
 // @access:     Private
 exports.deleteBootcamp = (req, res, next) => {
-  res.send(`Delete a bootcamp ${req.params.id}`);
+  res.send(`Delete bootcamp with id ${req.params.id}`);
 };
