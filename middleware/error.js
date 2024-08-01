@@ -1,12 +1,19 @@
+const ErrorResponse = require('../utils/errorResponse');
+
 const errorHandler = (err, req, res, next) => {
-  //   let error = { ...err };
-  //   error.message = err.message;
+  let error = { ...err };
+  error.message = err.message;
 
   console.log(err.stack.red);
 
-  res.status(500).json({
+  if (err.name === 'CastError') {
+    const message = `Resource not found`;
+    error = new ErrorResponse(message, 404);
+  }
+
+  res.status(error.statusCode || 500).json({
     success: false,
-    error: err.message,
+    error: error.message || 'Server error',
   });
 };
 
