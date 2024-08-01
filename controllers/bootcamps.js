@@ -18,15 +18,12 @@ exports.getBootcamp = (req, res, next) => {
 // @access:     Private
 exports.createBootcamp = async (req, res, next) => {
   try {
-    console.log(req.body);
     const bootcamp = await Bootcamp.create(req.body);
     res.status(201).json({ success: true, data: bootcamp });
   } catch (err) {
-    // console.log(err);
-    res.status(400).json({ success: false });
+    next(err);
+    // res.status(400).json({ success: false });
   }
-  //   res.send(`Create a bootcamp`);
-  next();
 };
 
 // @desc:       Update a bootcamp
