@@ -4,6 +4,7 @@ const bootcamps = require('./routes/bootcamps');
 const connectDB = require('./config/db');
 // const logger = require('./middleware/logger');
 const morgan = require('morgan');
+const colors = require('colors');
 
 dotenv.config({ path: './config/config.env' });
 
@@ -22,7 +23,9 @@ const PORT = process.env.PORT;
 
 const server = app.listen(
   PORT,
-  console.log(`Server running at mode ${process.env.NODE_ENV} on port ${PORT}`)
+  console.log(
+    `Server running at mode ${process.env.NODE_ENV} on port ${PORT}`.yellow.bold
+  )
 );
 
 process.on('unhandledRejection', (err, promise) => {
