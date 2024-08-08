@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
 
-const BootcampScheme = new mongoose.Schema({
+const BootcampSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, 'Please add a name'],
     unique: true,
+    maxlength: [50, 'Name can not be more than 50 characters'],
   },
 });
 
-module.exports = mongoose.model('Bootcamp', BootcampScheme);
+module.exports = mongoose.model('Bootcamp', BootcampSchema);
