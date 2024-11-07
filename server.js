@@ -12,8 +12,7 @@ const app = express();
 const PORT = process.env.PORT;
 
 app.use('/api/v1/bootcamps', bootcamps);
-
 app.listen(
   PORT,
-  console.log(`Server running on mode ${process.env.NODE_ENV} at ${PORT}`)
+  console.log(`Server running at mode ${process.env.NODE_ENV} on port ${PORT}`)
 );
