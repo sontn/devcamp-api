@@ -1,5 +1,4 @@
 const Bootcamp = require('../models/Bootcamp');
-
 exports.getBootcamps = async (req, res) => {
   try {
     const bootcamps = await Bootcamp.find();
