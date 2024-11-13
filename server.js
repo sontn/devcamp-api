@@ -1,13 +1,14 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const connectDB = require('./config/db');
 const bootcamps = require('./routes/bootcamps');
+const connectDB = require('./config/db');
 
 dotenv.config({ path: './config/config.env' });
 
 const PORT = process.env.PORT;
 
 connectDB();
+
 const app = express();
 
 app.use('/api/v1/bootcamps', bootcamps);
