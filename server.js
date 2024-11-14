@@ -10,6 +10,7 @@ const PORT = process.env.PORT;
 connectDB();
 
 const app = express();
+
 app.use('/api/v1/bootcamps', bootcamps);
 
 app.listen(
