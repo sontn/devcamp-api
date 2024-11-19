@@ -1,7 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const bootcamps = require('./routes/bootcamps');
 const connectDB = require('./config/db');
+const bootcamps = require('./routes/bootcamps');
 
 dotenv.config({ path: './config/config.env' });
 
@@ -9,9 +9,9 @@ connectDB();
 
 const app = express();
 
-const PORT = process.env.PORT;
-
 app.use('/api/v1/bootcamps', bootcamps);
+
+const PORT = process.env.PORT;
 
 app.listen(
   PORT,
