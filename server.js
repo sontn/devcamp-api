@@ -15,5 +15,5 @@ app.use('/api/v1/bootcamps', bootcamps);
 
 app.listen(
   PORT,
-  console.log(`Server running at mode ${process.env.NODE_ENV} on port ${PORT}`)
+  console.log(`Server running at mode ${process.env.NODE_ENV} at port ${PORT}`)
 );
