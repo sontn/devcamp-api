@@ -5,7 +5,7 @@ const connectDB = require('./config/db');
 
 dotenv.config({ path: './config/config.env' });
 
-connectDB();
+connectDB(0);
 
 const app = express();
 
@@ -15,5 +15,5 @@ app.use('/api/v1/bootcamps', bootcamps);
 
 app.listen(
   PORT,
-  console.log(`Server running at mode ${process.env.NODE_ENV} at port ${PORT}`)
+  console.log(`Server running at mode ${process.env.NODE_ENV} on port ${PORT}`)
 );
