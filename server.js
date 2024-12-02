@@ -5,13 +5,13 @@ const connectDB = require('./config/db');
 
 dotenv.config({ path: './config/config.env' });
 
-connectDB(0);
+connectDB();
 
 const app = express();
 
-const PORT = process.env.PORT;
-
 app.use('/api/v1/bootcamps', bootcamps);
+
+const PORT = process.env.PORT;
 
 app.listen(
   PORT,
